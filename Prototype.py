@@ -18,9 +18,19 @@ def getSwipedArea(event, x, y, flags, param):
         line = small_receipt[init_y:height+init_y, init_x:width+init_x]
         cv2.imshow('cropped line', line)
 
-receipt = cv2.imread('Images/receipt.jpg')
-receipt = cv2.medianBlur(receipt, 11)
-small_receipt = cv2.resize(receipt,(0, 0), fx = 0.25, fy = 0.25)
+receipt = cv2.imread('Images/receipt0.jpg')
+
+#resizing
+if len(receipt) > 1000:
+    small_receipt = cv2.resize(receipt,(0, 0), fx = 0.25, fy = 0.25)
+else:
+    small_receipt = receipt
+
+cv2.imshow('first', small_receipt)
+small_receipt = cv2.medianBlur(small_receipt, 3) #median filter
+_,small_receipt = cv2.threshold(small_receipt, 127, 255, cv2.THRESH_BINARY) #thresholding
+
+
 cv2.imshow('receipt', small_receipt)
 cv2.setMouseCallback('receipt', getSwipedArea)
 cv2.waitKey(0)
