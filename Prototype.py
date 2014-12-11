@@ -7,14 +7,17 @@ init_x = 0
 init_y = 0
 height = 50
 width = 0
+
 def getSwipedArea(event, x, y, flags, param):
     global init_x, init_y, height, width
+
     if event == cv2.EVENT_LBUTTONDOWN:
         init_x = x - 20
         init_y = y - 20
     elif event == cv2.EVENT_LBUTTONUP:
         cv2.destroyWindow('cropped line')
         width = x - init_x
+        height = height + y-init_y-30
         line = small_receipt[init_y:height+init_y, init_x:width+init_x]
         cv2.imshow('cropped line', line)
 
