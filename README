@@ -1,0 +1,12 @@
+How to run:
+
+python Prototype.py [Image relative URL] [(optional) -debugging]
+
+the -debugging to get images for intermediate steps during execution
+
+---------------------------------------------------------------------------
+Dependencies: tesseract
+*You can install it with brew or any package manager I think, just $brew install tessract
+
+
+!Keep in mind this prototype is still far from perfect.
