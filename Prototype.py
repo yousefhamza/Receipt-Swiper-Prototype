@@ -1,9 +1,11 @@
 __author__ = 'yousefhamza'
 
-import cv2
 import os
 import copy
 import sys
+
+import cv2
+
 
 _cost = 0
 _debugging = False
@@ -140,8 +142,8 @@ def main():
     #Getting input right
     if (len(sys.argv) == 2):
         imageURL = sys.argv[1]
-    elif (len(sys.argv ) == 3 and sys.argv[2]== '-debugging'):
-        imageURL = sys.argv[1]
+    elif (len(sys.argv ) == 3 and sys.argv[1]== '-debugging'):
+        imageURL = sys.argv[2]
         _debugging = True
     else:
         print 'wrong inputs quitting...'
